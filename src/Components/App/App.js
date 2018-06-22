@@ -1,60 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from '../Header/Header'
-import PlanetList from '../PlanetList/PlanetList'
+import Header from '../Header/Header';
+import Home from '../Home/Home';
+import PlanetList from '../PlanetList/PlanetList';
+import Ships from '../Ships/Ships';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   
-  // this is similar to jquery's onReady. It is called by
-  // react when the component is loaded and ready to go
-  
-  
-
-  
-  
-  // getPlanets(){
-  //   const url = 'https:swapi.co/api/planets/?format=json';
-  //   axios.get(url)
-  //     .then((response)=>{
-  //       console.log('back from the API with planets:', response.data);
-  //       this.setState({planetList: response.data.results});
-  //       let nextUrl = response.data.next;
-
-  //       if(nextUrl != null){
-  //         this.getMorePlanets(nextUrl)
-  //       }
-        
-  //     }).catch((error)=>{
-  //       console.log('error getting planets:', error);
-  //     });
-  // }
-  
-  // getPlanets(nextUrl){
-  //   if (nextUrl != null){
-  //     axios.get(nextUrl).then((response)=>{
-  //       this.setState({planetList: 
-  //         [...this.state.planetList, ...response.data.results]
-  //       })
-  //       this.getPlanets(response.data.next);
-  //     }).catch((error)=>{
-  //       console.log('error getting planets:', error);
-  //     })  
-  //   }
-    
-  // }
-
   
 
 
   render() {
     
     return (
+      <Router>
       <div className="App">
-       <Header />
-        
-        <PlanetList/>
+        <Header />
+        {/* <PlanetList/> */}
+      <Route exact path='/' component={Home} />
+      <Route path='/planet' component={PlanetList} />
+      <Route path='/ships' component={Ships} />
 
       </div>
+      </Router>
     );
   }
 }

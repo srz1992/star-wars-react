@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import './Header.css'
+import {Link} from 'react-router-dom';
+
 
 class Header extends Component {
   
@@ -6,6 +9,10 @@ class Header extends Component {
         return(
     <header className="App-header">
     <h1 className="App-title">SWAPI Planets</h1>
+    <ul>
+        <li class="navlink"><Link to ='/planet'>Planets</Link> | </li>
+        <li class="navlink"> <Link to ='/ships'> Ships</Link></li>
+    </ul>
   </header>
     )
 }

@@ -11,7 +11,7 @@ class PlanetList extends Component {
       }
 
       componentDidMount(){
-        console.log('component did mount');
+        console.log('planetlist.js did mount');
         const url = 'https:swapi.co/api/planets/?format=json';
         this.getPlanets(url);    
       }
@@ -35,12 +35,12 @@ class PlanetList extends Component {
     render() {
         console.log('planets:', this.state.planetList);
         return(
-
-
+        <div>
+        <h2>Planets</h2>
         <ul>
             {this.state.planetList.map(item => <Planet planet={item} key={item.name}/>)}
         </ul>
-    
+        </div>
 )
 }
 }
